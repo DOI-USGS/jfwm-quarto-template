@@ -1,0 +1,184 @@
+---
+title: "Quarto template for _Journal of Fish and Wildlife Managment_"
+thanks: This draft manuscript is distributed solely for purposes of scientific peer review. Its content is deliberative and predecisional, so it must not be disclosed or released by reviewers. Because the manuscript has not yet been approved for publication by the U.S. Geological Survey (USGS), it does not represent any official USGS finding or policy.
+author: "**Richard A. Erickson,* Althea A. Archer, Michael N. Fienen**"
+date: today
+format:
+  docx: 
+    fig-cap-location: bottom
+    keep-tex: true
+    number-sections: true
+    reference-doc: jfwm_template_template.docx
+
+csl: council-of-science-editors-author-date.csl 
+bibliography: references.bib
+header-includes:
+  \usepackage{setspace}\doublespacing
+  \usepackage{lineno} \linenumbers
+
+editor_options: 
+  markdown: 
+    wrap: sentence
+---
+
+<!-- Note the use of two spaces to form a list without indents, from  -->
+<!-- https://stackoverflow.com/questions/32474227/lists-without-bullets-points-in-markdown -->
+
+**R.A. Erickson**  
+U.S. Geological Survey, Upper Midwest Environmental Sciences Center, La Crosse, WI  
+**A.A. Archer**  
+U.S. Geological Survey, Water Resources Mission Area, Reston, VA  
+**M.N. Fienen**  
+U.S. Geological Survey, Upper Midwest Water Science Center, Madison, WI  
+*Corresponding author: (rerickson@usgs.gov)  
+
+
+# Abstract {.unnumbered}
+
+**Keywords:** Findability, Accessibility, Interoperability, and Reuse (FAIR); markdown; reproducible science; journal template; Quarto
+
+# Introduction
+
+
+* Motivation
+  * Scientists increasingly using reproducible results
+  * Findability, Accessibility, Interoperability, and Reuse (FAIR) [_doi:10.1016/j.molp.2018.07.005]
+  * Often not reproducible in Natural Resource fields such as _doi:10.1002/jwmg.21855
+  * Embedding data and code into documents can help with reproducible, especially when released together
+  * Additionally, natural resource professional routinely complete reports (e.g., annual reports) with standard statistics and data summaries.
+  * Embeding code can help, such as R Markdown and Quarto documents.
+  * First hand observation that FWS scientists would use tools based upon conversations on 
+the FWS's MS Teams "Great Lakes R Working Group" and FWS participation in USGS CDI CoP for LaTeX and Markdown
+  
+* Brief history
+  * Trouble typesetting math, which lead to TeX [@knuth1984tex] and then an easier to use via Leslie Lamport's LaTeX [@lamport1985latex]
+  * Sweave _doi:10.1007/978-3-642-57489-4_89
+  * Jupyter Notebooks (Quarto documents non-interactive, better for static documents) _doi:10.1109/JCDL.2017.7991618
+  * RMarkdown _doi:10.1201/9781138359444
+  * Quarto _doi:10.5281/zenodo.5960048
+
+* Purpose of this manuscript
+  * Present a template for JFWM using Quarto
+  * Demonstrate some useful features: table creation and `quarto-utils` package
+  * Examples tend to focus on R, but Quarto works with many languages. In fact, one of the authors does not use R at all.
+
+# Materials and Methods
+
+* Quarto [@fig-qurto]
+* `Quarto-utils` Python package
+* Tables with R and Python
+* Inline code with R (currently underdevelopment with Python https://github.com/quarto-dev/quarto-cli/pull/6190)
+
+## Background knowledge
+
+* Basic Markdown
+
+## Specific steps
+
+1. Write document.
+2. Optionally, include code or call code through `knitr::read_chunk()` 
+Table 1.
+
+# Results
+
+We have demonstrated how to use Quarto to prepare manuscript for the _Journal of Fish and Wildlife Management_.
+This includes Figures (such as @fig-qurto) and Tables (Such as Table 1 and Table 2).
+
+We have also described the co-authors random links to the upper Midwest (Table 2).
+The main purpose of this sentence sentence is to be a placeholder to demonstrate the second paragraph and the related indentation. 
+
+
+# Discussion
+
+* Reproducible methods such as Quarto can help science through following principles such as FAIR
+* Pragmatically, helps author be more efficient and avoid formatting of word documents
+
+# Conflict of Interest {.unnumbered}
+
+The authors report no conflicts of interest.
+
+# Acknowledgments {.unnumbered}
+
+We thank the USGS Biological Threats and Invasive Species Program for funding.
+Any use of trade, firm, or product names is for descriptive purposes only and does not imply endorsement by the U.S. Government.
+The findings and opinions expressed in this manuscript are those of the authors and do not necessarily represent the views of the US Fish and Wildlife Service.
+
+# Data availability {.unnumbered}
+
+
+# Figures {.unnumbered}
+
+![Exampe of quarto workflow.](./quarto.jpg){#fig-qurto}
+
+
+# Tables {.unnumbered}
+
+Table 1: Steps to use the Quarto template associated with this manuscript with the _Journal of Fish and Wildlife Management_.
+
+```{r}
+#| message: false
+#| warning: false
+#| error: false
+#| echo: false
+#| eval: true
+library(tidyverse)
+library(flextable)
+
+## From https://www.reddit.com/r/rstats/comments/11ywud9/how_do_you_get_perfect_tables_for_microsoft_word/
+# Function to have tables autofit to page
+FitFlextableToPage <- function(ft, pgwidth = 6.5){
+  # set as autofit to make width parameters adjustable
+  ft_out <- ft %>% autofit()
+  # set width as function of page width
+  ft_out <- width(ft_out,
+                  width = dim(ft_out)$widths * pgwidth /
+                    (flextable_dim(ft_out)$widths))
+  return(ft_out)
+}
+
+steps_tib <- tibble(
+  order = c(1, 2, "3 (optional)", 4, 5),
+  step = c("Obtain template from DOI",
+           "Write your text using Markdown",
+           "Run Python script to populate bibliography file",
+           "Break Quarto-Word link and do final formatting manually",
+           "Submit to _Journal of Fish and Wildlife Management_"))
+steps_tib |>
+  flextable() |>
+  theme_booktabs() |>
+  FitFlextableToPage()
+```
+
+Table 2: Author trivia to demonstrate a table. The table awkwardly includes wide and long form data to demonstrate how to use the `flextable` package.
+
+```{r}
+#| message: false
+#| warning: false
+#| error: false
+#| echo: false
+#| eval: true
+
+data <-
+  tibble(Author = c("RAE", "RAE", "RAE", "AAA", "MNF"),
+         Intership = c("University of Minnesota", "--", "--",
+                       "University of Minnesota", "--"),
+         Undergraduate = c("--", "--", "--", "Gustavus Adolphus", "Macalester"),
+         "Univeristy of Wisconsin (UW) System" =
+           c("Undergarduate, UW-Stevens Point",
+             "Internship, UW-Madison",
+             "Graduate facutly, UW-La Crosse",
+             "Graduate Certificate, UW-Madison",
+             "Graduate facutly, UW-Madison"))
+
+data |>
+  flextable() |>
+  theme_booktabs() |>
+  add_header_row(
+    colwidths = c(1, 2, 1),
+    values = c("",
+               "Minnesota Connection", "Wisconsin Acadmeic Connection")) |>
+  merge_v(j = ~Author) |>
+  FitFlextableToPage()
+```
+
+# References {.unnumbered}
