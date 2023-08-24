@@ -1,5 +1,5 @@
 ---
-title: "Quarto template for _Journal of Fish and Wildlife Managment_"
+title: "Quarto template for the _Journal of Fish and Wildlife Management_"
 thanks: This draft manuscript is distributed solely for purposes of scientific peer review. Its content is deliberative and predecisional, so it must not be disclosed or released by reviewers. Because the manuscript has not yet been approved for publication by the U.S. Geological Survey (USGS), it does not represent any official USGS finding or policy.
 author: "**Richard A. Erickson,* Althea A. Archer, Michael N. Fienen**"
 date: today
@@ -37,49 +37,63 @@ U.S. Geological Survey, Upper Midwest Water Science Center, Madison, WI
 
 **Keywords:** Findability, Accessibility, Interoperability, and Reuse (FAIR); markdown; reproducible science; journal template; Quarto
 
-# Introduction
+# Introduction  {.unnumbered}
 
+Modern computing tools can allow scientists and practitioners to be more efficient, transparent, and reproducible [_doi:10.1111/2041-210X.14108; _doi:10.1111/nrm.12318].
+For example, ecologists are moving away from point-and-click statistical methods to using scripting languages with code [_doi:10.1111/ecog.02493].
+These changes not only make scientists more productive, but confer additional benefits.
+First, using scripting allows the ready reuse of methods by their creator.
+For example, scientists commonly conduct the same or similar analyses on a regular basis [such as @usfws2023].
+Thus, scripting allows methods to be easily adapted and often quickly rerun with minimal formatting.
+Second, sharing the code allows others to reuse methods and also recreate results when data are shared as well.
 
-* Motivation
-  * Scientists increasingly using reproducible results
-  * Findability, Accessibility, Interoperability, and Reuse (FAIR) [_doi:10.1016/j.molp.2018.07.005]
-  * Often not reproducible in Natural Resource fields such as _doi:10.1002/jwmg.21855
-  * Embedding data and code into documents can help with reproducible, especially when released together
-  * Additionally, natural resource professional routinely complete reports (e.g., annual reports) with standard statistics and data summaries.
-  * Embeding code can help, such as R Markdown and Quarto documents.
-  * First hand observation that FWS scientists would use tools based upon conversations on 
-the FWS's MS Teams "Great Lakes R Working Group" and FWS participation in USGS CDI CoP for LaTeX and Markdown
-  
-* Brief history
-  * Trouble typesetting math, which lead to TeX [@knuth1984tex] and then an easier to use via Leslie Lamport's LaTeX [@lamport1985latex]
-  * Sweave _doi:10.1007/978-3-642-57489-4_89
-  * Jupyter Notebooks (Quarto documents non-interactive, better for static documents) _doi:10.1109/JCDL.2017.7991618
-  * RMarkdown _doi:10.1201/9781138359444
-  * Quarto _doi:10.5281/zenodo.5960048
+The broader scientific community has begun to increasingly see the importance of reproducible results because of a perception of a reproducibility crisis exists, across scientific fields [_doi:10.1038/533452a; _doi:10.1073/pnas.1708272114].
+Thus, scientists increasingly seek to produce reproducible results, especially for computationally intensive projects [_doi:10.1126/science.1179653].
+This lack reproducibility also occurs in natural resource fields [such as _doi:10.1002/jwmg.21855].
+Others have provided suggestions and methods for creating reproducible results in natural resource and related fields [such as _doi:10.1111/2041-210X.14108; _doi:10.1111/ecog.02493].
+Additionally, Findability, Accessibility, Interoperability, and Reuse (commonly known as "FAIR" by the organizers) principles exist to help scientists share and produce reproducible science [_doi:10.1016/j.molp.2018.07.005].
+Likewise, professional societies and government agencies have produced guidelines for reproducible science and Table 1 of _doi:10.1111/nrm.12318 lists example organizations.
 
-* Purpose of this manuscript
-  * Present a template for JFWM using Quarto
-  * Demonstrate some useful features: table creation and `quarto-utils` package
-  * Examples tend to focus on R, but Quarto works with many languages. In fact, one of the authors does not use R at all.
+While many scientists now use scripting languages for their statistical method [for example, see Figure 2 of _doi:10.1002/etc.4800 who found that a plurality of authors in an the journal _Environmental Toxicology and Chemistry_ use R] fewer use similar tools for writing manuscripts.
+However, similar tools to scripting languages for statistics (such as Python or R) exist that allow scientist to more efficiently write manuscript that are Markdown-based [_doi:10.1002/wics.1348].
+These writing tools can be especially powerful when embedded with code and released, but also include other benefits.
+_10.1002/wics.1348 note that Markdown-based programs such as `R Markdown` and `Quarto` offer advantages over LaTeX, Word, or HTML for the author.
+These include simplicity, readability, transparency, and embedded computation.  
 
-# Materials and Methods
+On a more personal note, we have observed interest in Markdown-based writing documents from our colleague and collaborators.
+For example, Erickson co-leads a U.S. Geological Survey Markdown Community of Practice and all of the authors have presented tutorials to this group.
+Additionally, this group includes members from the U.S. Fish and Wildlife.
+We have also observed conservations about using Markdown-based writing tools in online conversations such as the U.S. Fish and Wildlife Service's "Great Lakes R Working Group".
+
+For readers who unfamiliar with Markdown-based writings tools, we provide a brief history here.
+Stanford University computer scientist Donald Knuth had trouble typesetting his mathematical equations in the late-1970s and early-1980s and this led him to create the TeX language [@knuth1984tex].
+Leslie Lamport create LaTeX as a set of macros to make TeX easier to use [@lamport1985latex].
+Statistics sought to easily embed statistical code with LaTeX documents.
+At the time, the S-language (the language upon which R is based) was popular so the program Sweave was created to weave S with LaTeX.
+While brilliant in theory, Tex, LaTeX, and Sweave all can be complicated to use and Sweave can be especially cumbersome to use.
+This difficulty in use led Yihui Xie and others to create a Markdown-based program, RMarkdown [_doi:10.1201/9781138359444].
+The popularity of RMarkdown led Yihui Xie and others to create a more general program that works natively with many languages rather than only R, Quarto [_doi:10.5281/zenodo.5960048].
+
+The remaining purpose of our paper is to present our Quarto template for this journal [@erickosn2023quarto].
+We demonstrate useful some useful features including how to include figures, tables, and the `quarto-utils` package for automatic bibliography generation.
+We also discuss how these tools may be applied to other situations.
+Although our examples tend to focus on R, Quarto works with many languages.
+
+# Materials and Methods {.unnumbered}
+
+## Quarto workflow {.unnumbered}
 
 * Quarto [@fig-qurto]
+* Journal pipeline
+
+## Useful feature {.unnumbered}
+
+* basic Markdown
 * `Quarto-utils` Python package
 * Tables with R and Python
 * Inline code with R (currently underdevelopment with Python https://github.com/quarto-dev/quarto-cli/pull/6190)
 
-## Background knowledge
-
-* Basic Markdown
-
-## Specific steps
-
-1. Write document.
-2. Optionally, include code or call code through `knitr::read_chunk()` 
-Table 1.
-
-# Results
+# Results {.unnumbered}
 
 We have demonstrated how to use Quarto to prepare manuscript for the _Journal of Fish and Wildlife Management_.
 This includes Figures (such as @fig-qurto) and Tables (Such as Table 1 and Table 2).
@@ -87,11 +101,17 @@ This includes Figures (such as @fig-qurto) and Tables (Such as Table 1 and Table
 We have also described the co-authors random links to the upper Midwest (Table 2).
 The main purpose of this sentence sentence is to be a placeholder to demonstrate the second paragraph and the related indentation. 
 
-
-# Discussion
+# Discussion {.unnumbered}
 
 * Reproducible methods such as Quarto can help science through following principles such as FAIR
 * Pragmatically, helps author be more efficient and avoid formatting of word documents
+* Also, scientific workflow that differs by authors
+  * Erickson will often use 3 files: For example (1) format data (2) run a long bayesian model and (3) call an R script from a Quarto file to produce a summary report
+  * Fienen will often times run everything in Python and then write manuscript using Quarto
+* Applications to other systems such as reports (key is to create template)
+  * Other journals may have LaTeX templates that can readily be used
+  * Easy to change reference managers
+  * Ease of reformatting also allows for easy reformatting a resubmitting  
 
 # Conflict of Interest {.unnumbered}
 
@@ -99,9 +119,9 @@ The authors report no conflicts of interest.
 
 # Acknowledgments {.unnumbered}
 
-We thank the USGS Biological Threats and Invasive Species Program for funding.
+We thank the U.S. Geological Survey Biological Threats and Invasive Species Research Program for funding.
 Any use of trade, firm, or product names is for descriptive purposes only and does not imply endorsement by the U.S. Government.
-The findings and opinions expressed in this manuscript are those of the authors and do not necessarily represent the views of the US Fish and Wildlife Service.
+The findings and opinions expressed in this manuscript are those of the authors and do not necessarily represent the views of the U.S. Fish and Wildlife Service.
 
 # Data availability {.unnumbered}
 
