@@ -94,7 +94,7 @@ The main purpose of this sentence sentence is to be a placeholder to demonstrate
 
 * Reproducible methods such as Quarto can help science through following principles such as FAIR
 * Pragmatically, helps author be more efficient and avoid formatting of word documents
-* Ideally, if a manuscript submitted to JWM using this manuscript gets denied (gasp!), fairly easy to modify format to other journal requirements
+* Ideally, if a manuscript submitted to JFWM using this manuscript gets denied (gasp!), fairly easy to modify format to other journal requirements
 * Paired with git, easy to track changes and manage collaborative writing through the peer review process
 
 # Conflict of Interest {.unnumbered}
