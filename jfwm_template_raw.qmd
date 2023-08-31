@@ -58,20 +58,22 @@ the FWS's MS Teams "Great Lakes R Working Group" and FWS participation in USGS C
   * Quarto _doi:10.5281/zenodo.5960048
 
 * Purpose of this manuscript
-  * Present a template for JFWM using Quarto
-  * Demonstrate some useful features: table creation and `quarto-utils` package
+  * Present a template for JFWM using Quarto (easy to adapt for current users of RMarkdown and ROxygen)
+  * Demonstrate some useful features: table creation and `quarto-utils` package and generating and including a figure
   * Examples tend to focus on R, but Quarto works with many languages. In fact, one of the authors does not use R at all.
 
 # Materials and Methods
 
-* Quarto [@fig-qurto]
+* Quarto [@fig-quarto]
 * `Quarto-utils` Python package
 * Tables with R and Python
 * Inline code with R (currently underdevelopment with Python https://github.com/quarto-dev/quarto-cli/pull/6190)
+* Automated citation management with BibTex
 
 ## Background knowledge
 
 * Basic Markdown
+* LaTeX equation syntax as needed, such as that required to make $\pi \approx 3.14159$
 
 ## Specific steps
 
@@ -82,7 +84,7 @@ Table 1.
 # Results
 
 We have demonstrated how to use Quarto to prepare manuscript for the _Journal of Fish and Wildlife Management_.
-This includes Figures (such as @fig-qurto) and Tables (Such as Table 1 and Table 2).
+This includes Figures (such as @fig-quarto) and Tables (Such as Table 1 and Table 2). 
 
 We have also described the co-authors random links to the upper Midwest (Table 2).
 The main purpose of this sentence sentence is to be a placeholder to demonstrate the second paragraph and the related indentation. 
@@ -92,6 +94,8 @@ The main purpose of this sentence sentence is to be a placeholder to demonstrate
 
 * Reproducible methods such as Quarto can help science through following principles such as FAIR
 * Pragmatically, helps author be more efficient and avoid formatting of word documents
+* Ideally, if a manuscript submitted to JWM using this manuscript gets denied (gasp!), fairly easy to modify format to other journal requirements
+* Paired with git, easy to track changes and manage collaborative writing through the peer review process
 
 # Conflict of Interest {.unnumbered}
 
@@ -101,14 +105,14 @@ The authors report no conflicts of interest.
 
 We thank the USGS Biological Threats and Invasive Species Program for funding.
 Any use of trade, firm, or product names is for descriptive purposes only and does not imply endorsement by the U.S. Government.
-The findings and opinions expressed in this manuscript are those of the authors and do not necessarily represent the views of the US Fish and Wildlife Service.
+The findings and opinions expressed in this manuscript are those of the authors and do not necessarily represent the views of the U.S. Geological Survey.
 
 # Data availability {.unnumbered}
 
 
 # Figures {.unnumbered}
 
-![Exampe of quarto workflow.](./quarto.jpg){#fig-qurto}
+![Exampe of quarto workflow.](./quarto.jpg){#fig-quarto}
 
 
 # Tables {.unnumbered}
@@ -164,7 +168,7 @@ data <-
                        "University of Minnesota", "--"),
          Undergraduate = c("--", "--", "--", "Gustavus Adolphus", "Macalester"),
          "Univeristy of Wisconsin (UW) System" =
-           c("Undergarduate, UW-Stevens Point",
+           c("Undergraduate, UW-Stevens Point",
              "Internship, UW-Madison",
              "Graduate facutly, UW-La Crosse",
              "Graduate Certificate, UW-Madison",
@@ -176,7 +180,7 @@ data |>
   add_header_row(
     colwidths = c(1, 2, 1),
     values = c("",
-               "Minnesota Connection", "Wisconsin Acadmeic Connection")) |>
+               "Minnesota Connection", "Wisconsin Academic Connection")) |>
   merge_v(j = ~Author) |>
   FitFlextableToPage()
 ```
