@@ -103,34 +103,49 @@ Although our examples tend to focus on R, Quarto works with many languages.
 * Journal pipeline for us (Table 1)
 
 
-## Useful feature {.unnumbered}
+* Motivation
+  * Scientists increasingly using reproducible results
+  * Findability, Accessibility, Interoperability, and Reuse (FAIR) [_doi:10.1016/j.molp.2018.07.005]
+  * Often not reproducible in Natural Resource fields such as _doi:10.1002/jwmg.21855
+  * Embedding data and code into documents can help with reproducible, especially when released together
+  * Additionally, natural resource professional routinely complete reports (e.g., annual reports) with standard statistics and data summaries.
+  * Embeding code can help, such as R Markdown and Quarto documents.
+  * First hand observation that FWS scientists would use tools based upon conversations on 
+the FWS's MS Teams "Great Lakes R Working Group" and FWS participation in USGS CDI CoP for LaTeX and Markdown
+  
+* Brief history
+  * Trouble typesetting math, which lead to TeX [@knuth1984tex] and then an easier to use via Leslie Lamport's LaTeX [@lamport1985latex]
+  * Sweave _doi:10.1007/978-3-642-57489-4_89
+  * Jupyter Notebooks (Quarto documents non-interactive, better for static documents) _doi:10.1109/JCDL.2017.7991618
+  * RMarkdown _doi:10.1201/9781138359444
+  * Quarto _doi:10.5281/zenodo.5960048
 
-* basic Markdown
-* Use LaTeX for math
-* Reference
-  * `.bib` file, `references.bib` with our template
-  * Enter in by hand or using editor
-  * easier to copy over from Google Scholar and edit
-  * Or, convert DOI to bib entry using `Quarto-utils` Python package
-* `Quarto-utils`
-  * Mike add here
+* Purpose of this manuscript
+  * Present a template for JFWM using Quarto
+  * Demonstrate some useful features: table creation and `quarto-utils` package
+  * Examples tend to focus on R, but Quarto works with many languages. In fact, one of the authors does not use R at all.
+
+# Materials and Methods
+
+* Quarto [@fig-qurto]
+* `Quarto-utils` Python package
 * Tables with R and Python
-  * Table 1, simple and included because we wanted to show
-  * Table 2 demonstrates complex headings and formatting,
-  * Can use Markdown, but also easier to use `flextable` package (b/c it produces nice Word outputs)
-  * Also, similar features exist with Python, but not included here
-  * Imagine a standardized report, we have known statistical consultants who do this and are very efficient
-* Inline code with R
-  * For example typing `r
-2 + 2` yields
-`r 2 + 2`
-  * Imagine calculating and saving some like `n_fish_year` in an R script based upon annual catch data and then having the code update your inline text every time you run the file. Useful for annual reports, but also manuscript if you update things. 
-  * (currently underdevelopment with Python https://github.com/quarto-dev/quarto-cli/pull/6190) 
+* Inline code with R (currently underdevelopment with Python https://github.com/quarto-dev/quarto-cli/pull/6190)
 
-# Results {.unnumbered}
+## Background knowledge
+
+* Basic Markdown
+
+## Specific steps
+
+1. Write document.
+2. Optionally, include code or call code through `knitr::read_chunk()` 
+Table 1.
+
+# Results
 
 We have demonstrated how to use Quarto to prepare manuscript for the _Journal of Fish and Wildlife Management_.
-This includes Figures (such as @fig-quarto) and Tables (Such as Table 1 and Table 2).
+This includes Figures (such as @fig-qurto) and Tables (Such as Table 1 and Table 2).
 
 We have also described the co-authors random links to the upper Midwest (Table 2).
 The main purpose of this sentence sentence is to be a placeholder to demonstrate the second paragraph and the related indentation. 
@@ -141,13 +156,6 @@ The main purpose of this sentence sentence is to be a placeholder to demonstrate
   * USGS uses FAIR principles as part of their roadmap _doi:10.3133/ofr20221043
   * Likewise, FWS uses FAIR principles [@usfws2023budget]
 * Pragmatically, helps author be more efficient and avoid formatting of word documents
-* Also, scientific workflow that differs by authors
-  * _doi:10.5066/P9Q6SUML supported _doi:10.3996/JFWM-20-070 will often use multiples files: For example (1) format data (2) export data (3) run a long bayesian model and (4) call an R script from an R Markdown or Quarto file to produce a summary report
-  * Fienen will often times run everything in Python and then write manuscript using Quarto
-* Applications to other systems such as reports (key is to create template)
-  * Other journals may have LaTeX templates that can readily be used
-  * Easy to change reference formatting by changing style file
-  * Ease of reformatting also allows for easy reformatting a resubmitting when rejected by a journal
 
 # Conflict of Interest {.unnumbered}
 
@@ -157,14 +165,14 @@ The authors report no conflicts of interest.
 
 We thank the U.S. Geological Survey Biological Threats and Invasive Species Research Program for funding.
 Any use of trade, firm, or product names is for descriptive purposes only and does not imply endorsement by the U.S. Government.
-The findings and opinions expressed in this manuscript are those of the authors and do not necessarily represent the views of the U.S. Fish and Wildlife Service.
+The findings and opinions expressed in this manuscript are those of the authors and do not necessarily represent the views of the US Fish and Wildlife Service.
 
 # Data availability {.unnumbered}
 
 
 # Figures {.unnumbered}
 
-![Example of quarto workflow.](./quarto.jpg){#fig-quarto}
+![Exampe of quarto workflow.](./quarto.jpg){#fig-qurto}
 
 
 # Tables {.unnumbered}
@@ -220,7 +228,7 @@ data <-
                        "University of Minnesota", "--"),
          Undergraduate = c("--", "--", "--", "Gustavus Adolphus", "Macalester"),
          "Univeristy of Wisconsin (UW) System" =
-           c("Undergarduate, UW-Stevens Point",
+           c("Undergraduate, UW-Stevens Point",
              "Internship, UW-Madison",
              "Graduate facutly, UW-La Crosse",
              "Graduate Certificate, UW-Madison",
@@ -232,7 +240,7 @@ data |>
   add_header_row(
     colwidths = c(1, 2, 1),
     values = c("",
-               "Minnesota Academic Connection", "Wisconsin Academic Connection")) |>
+               "Minnesota Connection", "Wisconsin Acadmeic Connection")) |>
   merge_v(j = ~Author) |>
   FitFlextableToPage()
 ```
