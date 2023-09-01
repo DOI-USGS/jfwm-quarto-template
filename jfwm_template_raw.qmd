@@ -99,30 +99,30 @@ Although our examples tend to focus on R, Quarto works with many languages.
   - End results is a Word `.docx` file
   - Intermediate step involves a Markdown file (`md`) but not germane to our example 
 * Journal pipeline for us (Table 1)
+* Inline code with R (currently underdevelopment with Python https://github.com/quarto-dev/quarto-cli/pull/6190)
+* `Quarto-utils` Python package
+* Tables with R and Python
 
 * Purpose of this manuscript
   * Present a template for JFWM using Quarto
   * Demonstrate some useful features: table creation and `quarto-utils` package
   * Examples tend to focus on R, but Quarto works with many languages. In fact, one of the authors does not use R at all.
 
-# Materials and Methods
 
-* Quarto [@fig-qurto]
-* `Quarto-utils` Python package
-* Tables with R and Python
-* Inline code with R (currently underdevelopment with Python https://github.com/quarto-dev/quarto-cli/pull/6190)
 
-## Background knowledge
 
-* Basic Markdown
+## Background knowledge {.unnumbered}
 
-## Specific steps
+* Basic Markdown, such as _italic_, **bold**, headers with 
+* LaTeX for equations
+  
+## Specific steps {.unnumbered}
 
 1. Write document.
 2. Optionally, include code or call code through `knitr::read_chunk()` 
 Table 1.
 
-# Results
+# Results {.unnumbered}
 
 We have demonstrated how to use Quarto to prepare manuscript for the _Journal of Fish and Wildlife Management_.
 This includes Figures (such as @fig-qurto) and Tables (Such as Table 1 and Table 2).
@@ -188,6 +188,7 @@ steps_tib <- tibble(
            "Run Python script to populate bibliography file",
            "Break Quarto-Word link and do final formatting manually",
            "Submit to _Journal of Fish and Wildlife Management_"))
+
 steps_tib |>
   flextable() |>
   theme_booktabs() |>
