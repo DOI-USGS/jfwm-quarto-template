@@ -35,6 +35,13 @@ U.S. Geological Survey, Upper Midwest Water Science Center, Madison, WI
 
 # Abstract {.unnumbered}
 
+To do:
+
+- [ ] Finish repo metadata, including readme, license, etc.
+- [ ] Finish writing first draft of this document
+- [ ] Send to Althea 
+- [ ] Render Python based DOIs
+
 **Keywords:** Findability, Accessibility, Interoperability, and Reuse (FAIR); markdown; reproducible science; journal template; Quarto
 
 # Introduction  {.unnumbered}
@@ -74,29 +81,56 @@ While brilliant in theory, Tex, LaTeX, and Sweave all can be complicated to use 
 This difficulty in use led Yihui Xie and others to create a Markdown-based program, RMarkdown [_doi:10.1201/9781138359444].
 The popularity of RMarkdown led Yihui Xie and others to create a more general program that works natively with many languages rather than only R, Quarto [_doi:10.5281/zenodo.5960048].
 
-The remaining purpose of our paper is to present our Quarto template for this journal [@erickosn2023quarto].
+The remaining purpose of our paper is to present our Quarto template for this journal [@erickson2023quarto].
 We demonstrate useful some useful features including how to include figures, tables, and the `quarto-utils` package for automatic bibliography generation.
 We also discuss how these tools may be applied to other situations.
 Although our examples tend to focus on R, Quarto works with many languages.
 
-# Materials and Methods {.unnumbered}
+# Methods {.unnumbered}
 
 ## Quarto workflow {.unnumbered}
 
-* Quarto [@fig-qurto]
-* Journal pipeline
+* Quarto [@fig-quarto]
+  - write a Markdown file with `.qmd` extensions
+  - Header contains the metadata in yml format, minimal customization needed for this template
+  - Template file is `jfwm_template_template.docx`
+  - User simply renders file
+    - Posit's RStudio likely easiest program
+    - Visual Studio Code another easy editor
+    - Command line a third option
+  - End results is a Word `.docx` file
+  - Intermediate step involves a Markdown file (`md`) but not germane to our example 
+* Journal pipeline for us (Table 1)
+
 
 ## Useful feature {.unnumbered}
 
 * basic Markdown
-* `Quarto-utils` Python package
+* Use LaTeX for math
+* Reference
+  * `.bib` file, `references.bib` with our template
+  * Enter in by hand or using editor
+  * easier to copy over from Google Scholar and edit
+  * Or, convert DOI to bib entry using `Quarto-utils` Python package
+* `Quarto-utils`
+  * Mike add here
 * Tables with R and Python
-* Inline code with R (currently underdevelopment with Python https://github.com/quarto-dev/quarto-cli/pull/6190)
+  * Table 1, simple and included because we wanted to show
+  * Table 2 demonstrates complex headings and formatting,
+  * Can use Markdown, but also easier to use `flextable` package (b/c it produces nice Word outputs)
+  * Also, similar features exist with Python, but not included here
+  * Imagine a standardized report, we have known statistical consultants who do this and are very efficient
+* Inline code with R
+  * For example typing `r
+2 + 2` yields
+`r 2 + 2`
+  * Imagine calculating and saving some like `n_fish_year` in an R script based upon annual catch data and then having the code update your inline text every time you run the file. Useful for annual reports, but also manuscript if you update things. 
+  * (currently underdevelopment with Python https://github.com/quarto-dev/quarto-cli/pull/6190) 
 
 # Results {.unnumbered}
 
 We have demonstrated how to use Quarto to prepare manuscript for the _Journal of Fish and Wildlife Management_.
-This includes Figures (such as @fig-qurto) and Tables (Such as Table 1 and Table 2).
+This includes Figures (such as @fig-quarto) and Tables (Such as Table 1 and Table 2).
 
 We have also described the co-authors random links to the upper Midwest (Table 2).
 The main purpose of this sentence sentence is to be a placeholder to demonstrate the second paragraph and the related indentation. 
@@ -104,14 +138,16 @@ The main purpose of this sentence sentence is to be a placeholder to demonstrate
 # Discussion {.unnumbered}
 
 * Reproducible methods such as Quarto can help science through following principles such as FAIR
+  * USGS uses FAIR principles as part of their roadmap _doi:10.3133/ofr20221043
+  * Likewise, FWS uses FAIR principles [@usfws2023budget]
 * Pragmatically, helps author be more efficient and avoid formatting of word documents
 * Also, scientific workflow that differs by authors
-  * Erickson will often use 3 files: For example (1) format data (2) run a long bayesian model and (3) call an R script from a Quarto file to produce a summary report
+  * _doi:10.5066/P9Q6SUML supported _doi:10.3996/JFWM-20-070 will often use multiples files: For example (1) format data (2) export data (3) run a long bayesian model and (4) call an R script from an R Markdown or Quarto file to produce a summary report
   * Fienen will often times run everything in Python and then write manuscript using Quarto
 * Applications to other systems such as reports (key is to create template)
   * Other journals may have LaTeX templates that can readily be used
-  * Easy to change reference managers
-  * Ease of reformatting also allows for easy reformatting a resubmitting  
+  * Easy to change reference formatting by changing style file
+  * Ease of reformatting also allows for easy reformatting a resubmitting when rejected by a journal
 
 # Conflict of Interest {.unnumbered}
 
@@ -128,7 +164,7 @@ The findings and opinions expressed in this manuscript are those of the authors 
 
 # Figures {.unnumbered}
 
-![Exampe of quarto workflow.](./quarto.jpg){#fig-qurto}
+![Example of quarto workflow.](./quarto.jpg){#fig-quarto}
 
 
 # Tables {.unnumbered}
@@ -196,9 +232,17 @@ data |>
   add_header_row(
     colwidths = c(1, 2, 1),
     values = c("",
-               "Minnesota Connection", "Wisconsin Acadmeic Connection")) |>
+               "Minnesota Academic Connection", "Wisconsin Academic Connection")) |>
   merge_v(j = ~Author) |>
   FitFlextableToPage()
 ```
+
+# Supplemental Material {.unnumbered}
+
+**Supplement S1**  U.S. Fish and Wildlife Service. 2023a. Waterfowl population status, 2023. U.S. Department of the Interior, Washington, D.C. USA.  
+**Supplement S2** U.S. Fish and Wildlife Service. 2023b. Budget justifications and performance information fiscal year 2024. U.S. Department of the Interior, Washington, D.C. USA.
+
+
+
 
 # References {.unnumbered}
