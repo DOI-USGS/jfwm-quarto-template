@@ -39,36 +39,34 @@ To do:
 
 - [ ] Finish repo metadata, including readme, license, etc.
 - [ ] Finish writing first draft of this document
-- [ ] Send to Althea 
-- [ ] Render Python based DOIs
 
 **Keywords:** Findability, Accessibility, Interoperability, and Reuse (FAIR); markdown; reproducible science; journal template; Quarto
 
 # Introduction  {.unnumbered}
 
-Modern computing tools can allow scientists and practitioners to be more efficient, transparent, and reproducible [_doi:10.1111/2041-210X.14108; _doi:10.1111/nrm.12318].
-For example, ecologists are moving away from point-and-click statistical methods to using scripting languages with code [_doi:10.1111/ecog.02493].
+Modern computing tools can allow scientists and practitioners to be more efficient, transparent, and reproducible [@Braga_2023; @Erickson_2021].
+For example, ecologists are moving away from point-and-click statistical methods to using scripting languages with code [@borregaard2016towards].
 These changes not only make scientists more productive, but confer additional benefits.
 First, using scripting allows the ready reuse of methods by their creator.
 For example, scientists commonly conduct the same or similar analyses on a regular basis [such as @usfws2023].
 Thus, scripting allows methods to be easily adapted and often quickly rerun with minimal formatting.
 Second, sharing the code allows others to reuse methods and also recreate results when data are shared as well.
 
-The broader scientific community has begun to increasingly see the importance of reproducible results because of a perception of a reproducibility crisis exists, across scientific fields [_doi:10.1038/533452a; _doi:10.1073/pnas.1708272114].
-Thus, scientists increasingly seek to produce reproducible results, especially for computationally intensive projects [_doi:10.1126/science.1179653].
-This lack reproducibility also occurs in natural resource fields [such as _doi:10.1002/jwmg.21855].
-Others have provided suggestions and methods for creating reproducible results in natural resource and related fields [such as _doi:10.1111/2041-210X.14108; _doi:10.1111/ecog.02493].
-Additionally, Findability, Accessibility, Interoperability, and Reuse (commonly known as "FAIR" by the organizers) principles exist to help scientists share and produce reproducible science [_doi:10.1016/j.molp.2018.07.005].
-Likewise, professional societies and government agencies have produced guidelines for reproducible science and Table 1 of _doi:10.1111/nrm.12318 lists example organizations.
+The broader scientific community has begun to increasingly see the importance of reproducible results because of a perception of a reproducibility crisis exists, across scientific fields [@Baker_2016; @fanelli2018science].
+Thus, scientists increasingly seek to produce reproducible results, especially for computationally intensive projects [@borregaard2016towards].
+This lack reproducibility also occurs in natural resource fields [such as wildlife research published in the _Journal of Wildlife Management_ and descrbed by @Archmiller_2020].
+Others have provided suggestions and methods for creating reproducible results in natural resource and related fields [such as @Braga_2023; @borregaard2016towards].
+Additionally, Findability, Accessibility, Interoperability, and Reuse (commonly known as "FAIR" by the organizers) principles exist to help scientists share and produce reproducible science [@Reiser_2018].
+Likewise, professional societies and government agencies have produced guidelines for reproducible science and Table 1 of @Erickson_2021 lists example organizations including professional societies and governmental agencies.
 
-While many scientists now use scripting languages for their statistical method [for example, see Figure 2 of _doi:10.1002/etc.4800 who found that a plurality of authors in an the journal _Environmental Toxicology and Chemistry_ use R] fewer use similar tools for writing manuscripts.
-However, similar tools to scripting languages for statistics (such as Python or R) exist that allow scientist to more efficiently write manuscript that are Markdown-based [_doi:10.1002/wics.1348].
-These writing tools can be especially powerful when embedded with code and released, but also include other benefits.
-_10.1002/wics.1348 note that Markdown-based programs such as `R Markdown` and `Quarto` offer advantages over LaTeX, Word, or HTML for the author.
+While many scientists now use scripting languages for their statistical method [for example, see Figure 2 of @Erickson_2020 who found that a plurality of authors in an the journal _Environmental Toxicology and Chemistry_ use R], we have observed that fewer scientists use similar tools for writing manuscripts.
+However, similar tools to scripting languages for statistics (such as Python or R), other tools exist that allow scientist to more efficiently write manuscript that are Markdown-based [@baumer2015r].
+These writing tools can be especially powerful when embedded with code and released, but also include additional benefits.
+@baumer2015r note that Markdown-based programs such as `R Markdown` and `Quarto` offer advantages over LaTeX, Word, or HTML for the author.
 These include simplicity, readability, transparency, and embedded computation.  
 
 On a more personal note, we have observed interest in Markdown-based writing documents from our colleague and collaborators.
-For example, Erickson co-leads a U.S. Geological Survey Markdown Community of Practice and all of the authors have presented tutorials to this group.
+For example, a U.S. Geological Survey Markdown Community of Practice exists and all of the authors have presented tutorials to this group.
 Additionally, this group includes members from the U.S. Fish and Wildlife.
 We have also observed conservations about using Markdown-based writing tools in online conversations such as the U.S. Fish and Wildlife Service's "Great Lakes R Working Group".
 
@@ -76,10 +74,10 @@ For readers who unfamiliar with Markdown-based writings tools, we provide a brie
 Stanford University computer scientist Donald Knuth had trouble typesetting his mathematical equations in the late-1970s and early-1980s and this led him to create the TeX language [@knuth1984tex].
 Leslie Lamport create LaTeX as a set of macros to make TeX easier to use [@lamport1985latex].
 Statistics sought to easily embed statistical code with LaTeX documents.
-At the time, the S-language (the language upon which R is based) was popular so the program Sweave was created to weave S with LaTeX.
-While brilliant in theory, Tex, LaTeX, and Sweave all can be complicated to use and Sweave can be especially cumbersome to use.
-This difficulty in use led Yihui Xie and others to create a Markdown-based program, RMarkdown [_doi:10.1201/9781138359444].
-The popularity of RMarkdown led Yihui Xie and others to create a more general program that works natively with many languages rather than only R, Quarto [_doi:10.5281/zenodo.5960048].
+At the time, the S-language (the language upon which R is based) was popular so the program Sweave was created to "weave" S with LaTeX [@Leisch_2002].
+While brilliant in theory, we have observed that Tex, LaTeX, and Sweave all can be complicated to use and Sweave can be especially cumbersome to use because it requires the source file to be complied multiple times.
+Others noted these difficulties as well and Yihui Xie and others to create a Markdown-based program for use with R, R Markdown [@Xie_2018], that overcomes many of these limitations.
+The popularity of R Markdown led Yihui Xie and others to create a more general program that works natively with many languages rather than only R, Quarto [@Allaire2022].
 
 The remaining purpose of our paper is to present our Quarto template for this journal [@erickson2023quarto].
 We demonstrate useful some useful features including how to include figures, tables, and the `quarto-utils` package for automatic bibliography generation.
@@ -101,24 +99,6 @@ Although our examples tend to focus on R, Quarto works with many languages.
   - End results is a Word `.docx` file
   - Intermediate step involves a Markdown file (`md`) but not germane to our example 
 * Journal pipeline for us (Table 1)
-
-
-* Motivation
-  * Scientists increasingly using reproducible results
-  * Findability, Accessibility, Interoperability, and Reuse (FAIR) [_doi:10.1016/j.molp.2018.07.005]
-  * Often not reproducible in Natural Resource fields such as _doi:10.1002/jwmg.21855
-  * Embedding data and code into documents can help with reproducible, especially when released together
-  * Additionally, natural resource professional routinely complete reports (e.g., annual reports) with standard statistics and data summaries.
-  * Embeding code can help, such as R Markdown and Quarto documents.
-  * First hand observation that FWS scientists would use tools based upon conversations on 
-the FWS's MS Teams "Great Lakes R Working Group" and FWS participation in USGS CDI CoP for LaTeX and Markdown
-  
-* Brief history
-  * Trouble typesetting math, which lead to TeX [@knuth1984tex] and then an easier to use via Leslie Lamport's LaTeX [@lamport1985latex]
-  * Sweave _doi:10.1007/978-3-642-57489-4_89
-  * Jupyter Notebooks (Quarto documents non-interactive, better for static documents) _doi:10.1109/JCDL.2017.7991618
-  * RMarkdown _doi:10.1201/9781138359444
-  * Quarto _doi:10.5281/zenodo.5960048
 
 * Purpose of this manuscript
   * Present a template for JFWM using Quarto
@@ -153,8 +133,9 @@ The main purpose of this sentence sentence is to be a placeholder to demonstrate
 # Discussion {.unnumbered}
 
 * Reproducible methods such as Quarto can help science through following principles such as FAIR
-  * USGS uses FAIR principles as part of their roadmap _doi:10.3133/ofr20221043
+  * USGS uses FAIR principles as part of their roadmap @lightsom2022opportunities
   * Likewise, FWS uses FAIR principles [@usfws2023budget]
+* Ideally, if a manuscript submitted to JFWM using this manuscript gets denied (gasp!), fairly easy to modify format to other journal requirements
 * Pragmatically, helps author be more efficient and avoid formatting of word documents
 
 # Conflict of Interest {.unnumbered}

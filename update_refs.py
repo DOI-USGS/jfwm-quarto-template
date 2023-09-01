@@ -8,7 +8,6 @@ for x in sys.argv:
         print("Inputs must be strings")
         sys.exit(0)
         
-
 # choose a paper!
 qmdfile = pl.Path(sys.argv[0])
 bibfile = pl.Path(sys.argv[1])
@@ -17,3 +16,4 @@ print(qmdfile)
 print(bibfile)
 
 update_references(qmdfile,bibfile,inplace=True)
+
