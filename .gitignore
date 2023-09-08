@@ -3,3 +3,4 @@
 *.DS_Store
 *.pdf
 jfwm_template_raw_files/*
+.vscode/*
