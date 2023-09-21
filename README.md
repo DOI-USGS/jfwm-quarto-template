@@ -6,7 +6,7 @@
 #### Year of Origin:   2023 (original publication)
 #### Year of Version:  2023
 #### Version:          1.0.0 
-#### Digital Object Identifier (DOI): https://doi.org/10.5066/XXXXXX
+#### Digital Object Identifier (DOI): https://doi.org/10.5066/P9FPFKKS
 #### USGS Information Product Data System (IPDS) no.: IP-XXXX
 
 ***
@@ -30,19 +30,12 @@ _Authors' [ORCID](https://orcid.org) nos.:_
 This repository contains a journal template for the [_Journal of Fish and Wildlife Management_][jfwm].
 The template uses [Quarto][quarto], a Markdown-based "open-source scientific and technical publishing system."
 The template uses an MS Word file as a template to format a manuscript for the _Journal of Fish and Wildlife Management_.
-
-
+Users will want to edit the `qmd` file and the `bib` file if they adapt this template for their own manuscripts.
 
 # Repository Files
 
-This repository contains the code for a R package using RStan.
-This repository contains the standard R repository files 
-(see the official R Documentation [_Writing R Extensions_][r_ext]
-accessed 30 June 2020 or [_R Packages_][r_pkgs] accessed August 13 2021 for an descriptions of these
-files) as well as RStan package files. 
-The `rstantools` package (Gabry et al. 2020) describes these files. 
-In addition to the R Package source files, this repository contains
-the following files:
+This repository contains a Quarto-based template for the _Journal of Fish and Wildlife Management_.
+To support this, the following files are located here:
 
 - `README.md` is this file.
 - `LICENSE.md` is the Official USGS License. 
@@ -50,12 +43,20 @@ the following files:
 - `CONTRIBUTING.md` describes how to contribute to this project.
 - `DISCLAIMER.md` is the standard USGS disclaimer.
 - `.gitignore` is a file telling git which files to not track.
-- `.Rbuildignore` is a file telling R what files to exclude.
+- `council-of-science-editors-author-date.csl` is a the reference citation style file.
+- `jfwm_template_raw.docx` is the compiled outputs from the Quarto file.
+- `jfwm_template_raw.qmd` is the the Quarto file for the template. _Users will want to edits this file_.
+- `quarto.png` is a figure for the manuscript.
+- `references.bib` is the reference file. _Users will want to edits this file_.
+- `updated_refs.py` is a Python script that updates the references based upon DOIs.
+
+# Background knowledge
 
 # Acknowledgments
 
-We thank the U.S. Geological Survey Biological Threats and Invasive Species Research Program for funding.
+We thank the U.S. Geological Survey Biological Threats and Invasive Species Research Program and U.S. Geological Survey Water Mission Area Integrated Information Dissemination Division for funding.
 Any use of trade, firm, or product names is for descriptive purposes only and does not imply endorsement by the U.S. Government.
+The findings and opinions expressed in this manuscript are those of the authors and do not necessarily represent the views of the US Fish and Wildlife Service.
 
 [quarto]: https://quarto.org/
 
