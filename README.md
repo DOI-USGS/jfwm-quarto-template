@@ -52,6 +52,12 @@ To support this, the following files are located here:
 
 # Background knowledge
 
+This template assumes the user knows, or at least wants to learn, how to use Markdown-based text programs such as Quarto.
+Knowing basic Markdown commands will help.
+Additionally, knowing LaTeX will assist in helping to write equations and do advanced formatting.
+A domain specific language such as Python or R are necessary to include your own code.
+Additionally, Python is required to use the option tools to convert DOI in text to be entires a a `bib` file.
+
 # Acknowledgments
 
 We thank the U.S. Geological Survey Biological Threats and Invasive Species Research Program and U.S. Geological Survey Water Mission Area Integrated Information Dissemination Division for funding.
