@@ -37,7 +37,7 @@ To do:
 - [ ] RAE Finish repo metadata, including readme, license, etc.
 - [ ] AAA and MNF proof read and give your blessing to be co-authors
 - [ ] MNF add in section on `quart-utils`
-- [ ] MNF create figure 1
+- [x] MNF create figure 1 _thanks Althea!!_
 
 # Abstract
 
@@ -60,7 +60,9 @@ Second, sharing the scripts allows others to reuse methods and also recreate res
 Third, scripting documents exactly what options were, or were not, selected for an analysis and data cleaning.
 
 The broader scientific community increasingly has begun to see the importance of reproducible results because the perception of a "reproducibility crisis" exists by the majority of scientists surveyed across scientific fields [@Baker_2016; @fanelli2018science]. 
-This lack reproducibility also occurs in natural resource fields. For example, @ArchMiller_2020 found only 17% of studies randomly selected from the _Journal of Wildlife Management_ and the _Wildlife Society Bulletin_ could have their analyses reproduced.
+This lack of reproducibility also occurs in natural resource fields. 
+For example, @ArchMiller_2020 found only 17% of studies randomly selected from the _Journal of Wildlife Management_ and the _Wildlife Society Bulletin_ could have their analyses reproduced.
+In hydrology, lack of reproducibility has raised questions of the vailidity of the field as a whole [_doi:https://doi.org/10.1002/2016WR019285] and has motivated exploration of challenges from other fields [@Fienen_2016].
 Thus, scientists increasingly seek to produce reproducible results, especially for computationally intensive projects [@borregaard2016towards].
 
 Others have provided suggestions and methods for creating reproducible results in natural resource and related fields [such as @Braga_2023; @borregaard2016towards].
