@@ -1,4 +1,4 @@
-# Quarto template for the _Journal of Fish and Wildlife Management_
+# Repository for Quarto template for the _Journal of Fish and Wildlife Management_
 
 #### Authors:          Richard A. Erickson, Althea A. Archer, Michael N. Fienen
 #### Point of contact: Richard A. Erickson (rerickson@usgs.gov)
@@ -13,8 +13,8 @@
 
 _Suggested Citation:_
 
-Erickson, R.A., Peterman L.L, 2023,
-Quarto template for the _Journal of Fish and Wildlife Management_
+Erickson RA, Archer AA, Fienen MN. 2023.
+Repository for Quarto template for the _Journal of Fish and Wildlife Management_
 U.S. Geological Survey software release. Reston, Va.,
 https://doi.org/10.5066/XXXXXX.
 
