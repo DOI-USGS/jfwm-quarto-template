@@ -7,7 +7,7 @@
 #### Year of Version:  2023
 #### Version:          1.0.0 
 #### Digital Object Identifier (DOI): https://doi.org/10.5066/P9FPFKKS
-#### USGS Information Product Data System (IPDS) no.: IP-XXXX
+#### USGS Information Product Data System (IPDS) no.: IP-158652
 
 ***
 
