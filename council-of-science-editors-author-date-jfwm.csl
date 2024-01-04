@@ -74,9 +74,8 @@
           <group prefix=" [" suffix="]" delimiter=" ">
             <text term="accessed"/>
             <date variable="accessed" delimiter=" ">
+              <date-part name="month" form="long" strip-periods="true"/>
               <date-part name="year"/>
-              <date-part name="month" form="short" strip-periods="true"/>
-              <date-part name="day"/>
             </date>
           </group>
           <text variable="URL"/>
