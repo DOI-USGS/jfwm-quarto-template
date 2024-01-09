@@ -1,7 +1,6 @@
 [
     {
-    "name": "JFWM Quarto template
-    ",
+    "name": "JFWM Quarto template",
     "organization": "U.S. Geological Survey",
     "description": "This repository contains a journal template for the Journal of Fish and Wildlife Management. The template uses Quarto, a Markdown-based open-source scientific and technical publishing system. The template uses an MS Word file as a template to format a manuscript for the Journal of Fish and Wildlife Management.", 
     "version": "main",
