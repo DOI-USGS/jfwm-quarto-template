@@ -3,8 +3,8 @@
 #### Authors:          Richard A. Erickson, Althea A. Archer, Michael N. Fienen
 #### Point of contact: Richard A. Erickson (rerickson@usgs.gov)
 #### Repository Type:  Quarto template
-#### Year of Origin:   2023 (original publication)
-#### Year of Version:  2023
+#### Year of Origin:   2024 (original publication)
+#### Year of Version:  2024
 #### Version:          1.0.0 
 #### Digital Object Identifier (DOI): https://doi.org/10.5066/P9FPFKKS
 #### USGS Information Product Data System (IPDS) no.: IP-158652
@@ -13,10 +13,11 @@
 
 _Suggested Citation:_
 
-Erickson RA, Archer AA, Fienen MN. 2023.
+Erickson RA, Archer AA, Fienen MN.
+2024.
 Repository for Quarto template for the _Journal of Fish and Wildlife Management_
 U.S. Geological Survey software release. Reston, Va.,
-https://doi.org/10.5066/XXXXXX.
+https://doi.org/10.5066/P9FPFKKS.
 
 _Authors' [ORCID](https://orcid.org) nos.:_
 
