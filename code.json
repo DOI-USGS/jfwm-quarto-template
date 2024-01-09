@@ -1,7 +1,6 @@
 [
     {
-    "name": "JFWM Quarto template
-    ",
+    "name": "JFWM Quarto template",
     "organization": "U.S. Geological Survey",
     "description": "This repository contains a journal template for the Journal of Fish and Wildlife Management. The template uses Quarto, a Markdown-based open-source scientific and technical publishing system. The template uses an MS Word file as a template to format a manuscript for the Journal of Fish and Wildlife Management.", 
     "version": "main",
@@ -12,14 +11,14 @@
       "licenses": [
         {
           "name": "Public Domain, CC0-1.0",
-          "URL": "https://code.usgs.gov/umesc/quant-ecology/jfwm-quarto-template/raw/main/LICENSE.md"
+          "URL": "https://code.usgs.gov/umesc/quant-ecology/jfwm-quarto-template/-/raw/main/LICENSE.md"
         }
       ]
     },
 
     "homepageURL": "https://code.usgs.gov/umesc/quant-ecology/jfwm-quarto-template",
-    "downloadURL": "https://code.usgs.gov/umesc/quant-ecology/jfwm-quarto-template/-/archive/main/jfwm-quarto-template_analysis-main.zip",
-    "disclaimerURL": "https://code.usgs.gov/umesc/quant-ecology/jfwm-quarto-template/raw/main/DISCLAIMER.md",
+    "downloadURL": "https://code.usgs.gov/umesc/quant-ecology/jfwm-quarto-template/-/archive/main/jfwm-quarto-template-main.zip",
+    "disclaimerURL": "https://code.usgs.gov/umesc/quant-ecology/jfwm-quarto-template/-/raw/main/DISCLAIMER.md",
     "repositoryURL": "https://code.usgs.gov/umesc/quant-ecology/jfwm-quarto-template.git",
     "vcs": "git",
 
