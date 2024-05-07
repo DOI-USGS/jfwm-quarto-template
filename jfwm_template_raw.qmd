@@ -69,7 +69,7 @@ However, we have observed that fewer scientists use similar tools in a reproduci
 Advantages of Markdown-based programs over direct typesetting products like LaTeX, Word, or Pages include simplicity, readability, transparency, and embedded computation [@baumer2015r]. Specifically, code-based manuscript writing can include the option to readily incorporate formatting from templates, ease of changing templates and reference formatting, automatic populating of references based upon Digital Object Identifiers (DOIs), and the ability to easily handle complex formulas (specifically embedded LaTeX syntax for formulas). 
 Furthermore, these writing tools can be especially powerful when embedded with the code and data used in the document, which allows authors to create reproducible manuscripts that directly populate in-text tables and figures. 
 
-we have observed interest (circa 2021-2023) in Markdown-based writing documents from our colleagues and collaborators who are natural resource managers or scientists supporting these managers, in North America and globally.
+We have observed interest (circa 2021-2023) in Markdown-based writing documents from our colleagues and collaborators who are natural resource managers or scientists supporting these managers, in North America and globally.
 For example, the U.S. Geological Survey has a Markdown Community of Practice, and the authors of this paper have presented tutorials to this group.
 Additionally, this group includes members from the U.S. Fish and Wildlife Service and other agencies in the U.S. Department of the Interior.
 We have also discussed using Markdown-based writing tools in online conversations with others such as the U.S. Fish and Wildlife Service's "Great Lakes R Working Group."
@@ -126,7 +126,27 @@ The Quarto file for this article contains the following metadata:
 * A list of "no citation" references (`nocite`) tells the Markdown to include citation items even if the item is not cited in the document. We include this because we had to manually format some inline citations to match the journal's style.
 
 After the header, the user writes their manuscript using Markdown code with optional LaTeX code for equations. 
-Code can be embedded within "chunks" that are defined by their language (such as the lower case `r` for R or `python` for Python). These code chunks can either be displayed or hidden in the final document.
+Code can be embedded within "chunks" that are defined by their language (such as the lower case `r` for R or `python` for Python). These code chunks can either be displayed or hidden in the final document:
+
+````{verbatim, lang = "markdown"}
+
+This code chunk would be shown in the resulting document:
+
+```{r}
+n_total <- 4341
+n_mean <- n_total / 23.5
+```
+
+Whereas this code chunk would be hidden from the resulting document:
+
+```{r, echo=FALSE}
+#| echo: false
+n_total <- 4341
+n_mean <- n_total / 23.5
+```
+
+````
+
 References are added to the BibTeX file, either manually or using a script described later by pulling DOIs.
 Figures and tables can be added as needed, whether built locally with code chunks or called in from other sources.
 While writing, the author can preview the results by compiling the file to create a Word document.
@@ -155,7 +175,7 @@ n_mean <- n_total / 23.5
 ```
 Integrating code into Quarto documents also helps to create reproducible results.
 Code may be included directly within the file, or R script files may be called into the Quarto file and "knit" into the final outputs using the `read_chunk()` function from the `knitr` package [@knitr2014].
-For example, a simple regression might be run or data plotted and then the outputs included in the file.
+For example, a simple regression might be run or data plotted in a chunk of code and then the outputs included in the file.
 Including the code ensures the manuscript always has the most recent results and statistics if the input files are changed.
 Additionally, code outputs can be included and displayed inline with R (this is currently under development with Python, as noted in [https://github.com/quarto-dev/quarto-cli/pull/6190](https://github.com/quarto-dev/quarto-cli/pull/6190), accessed September 2023).
 For example, when describing a study or writing a monitoring report, one might write "We observed many birds (_n_ = ``r prettyNum(n_total, big.mark= ",")``) at the refuge with a mean  of ``r round(n_mean, 1)`` birds per day."
@@ -203,9 +223,9 @@ Also, citations listed on doi.org may be incorrect and sometimes require additio
 We have demonstrated how to use Quarto to prepare manuscripts for journals that use Word-based workflows, such the _Journal of Fish and Wildlife Management_ or the _Journal of Wildlife Management_, and do not include LaTeX-based workflows as submission options.
 Our example paper included figures (such as Figure 1) and tables (such as Table 1 and Table 2).
 We have also described the coauthors' connections to the Upper Midwest (Table 2).
-These figures and tables to demonstrated how to construct a table with formatting changes from default settings.
+These figures and tables demonstrated how to construct a table with formatting changes from default settings.
 The methods of this paper provided tips and suggestions for using Quarto to format documents to match a specific journal's style. 
-Last, we presented use a Python package, `quarto-utils` [@fienen2024quarto] for helping author automate their reference management. 
+Last, we presented a Python package, `quarto-utils` [@fienen2024quarto] for helping author automate their reference management. 
 
 
 # Discussion
