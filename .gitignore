@@ -5,3 +5,4 @@
 jfwm_template_raw_files/*
 .vscode/*
 *.Rproj
+*.Rproj.user

@@ -35,8 +35,8 @@ U.S. Geological Survey, Upper Midwest Water Science Center, Madison, WI
 
 # Abstract
 
-Scientists and resource managers increasingly use Markdown-based tools to create reports and manuscripts.
-We present a Quarto template and and demonstrate how this template may be used for a journal,the _Journal of Fish and Wildlife Management_, in our article.
+Scientists and resource managers increasingly use Markdown-based tools to create reproducible reports and manuscripts.
+We present a Quarto template and demonstrate how this template may be used for a journal, the _Journal of Fish and Wildlife Management_, in our article.
 This template may also be readily adapted to other journals that use Microsoft Word-based workflows and for other product types such as annual reports. 
 We also provide a high-level overview of Quarto and other Markdown-based workflows as part of the document.
 Lastly, we provide examples of some features of the Quarto publishing system that may be helpful for authors when customizing Quarto template for specific journal formatting requirements and other product types.
@@ -51,7 +51,7 @@ These changes not only make scientists more productive but also confer additiona
 First, scripting allows methods to be reused by their creator.
 For example, scientists commonly complete the same or similar analyses on a regular basis [such as @usfws2023], and scripting allows methods to be easily adapted and often quickly rerun with minimal formatting.
 Second, sharing the scripts allows others to reuse methods and recreate results when data are shared.
-Third, scripting documents exactly what options were, or were not, selected for an analysis and data cleaning.
+Third, scripting provides direct evidence about what options were, or were not, selected for an analysis and data cleaning.
 All three of these features increase transparency in the scientific process.
 
 The broader scientific community increasingly has begun to understand the importance of reproducible results because the perception of a "reproducibility crisis" exists among most of the scientists surveyed across scientific fields [@Baker_2016; @fanelli2018science]. 
@@ -65,14 +65,14 @@ Additionally, Findable, Accessible, Interoperable, and Reusable (FAIR) principle
 Likewise, professional societies and government agencies have produced guidelines similar to FAIR for reproducible science (for example, refer to Table 1 in @Erickson_2021 that lists example organizations).
 
 Many scientists use scripting languages like Python or R for their statistical methods and analyses. For example, @Erickson_2020 determined that a plurality of authors in the journal _Environmental Toxicology and Chemistry_ from 2019 used the R computing language for analysis in their papers.
-However, we have observed that fewer scientists use similar tools for writing manuscripts even though scripting environments are now enriched with code-based manuscript services, such as Quarto, knitr, and Bookdown, which are primarily Markdown-based programs (Baumer and Udwin 2015; Figure 1).
+However, we have observed that fewer scientists use similar tools in a reproducible "research workflow" for writing manuscripts even though scripting environments are now enriched with code-based manuscript services, such as Quarto, knitr, and Bookdown, which are primarily Markdown-based programs (Baumer and Udwin 2015; Figure 1). 
 Advantages of Markdown-based programs over direct typesetting products like LaTeX, Word, or Pages include simplicity, readability, transparency, and embedded computation [@baumer2015r]. Specifically, code-based manuscript writing can include the option to readily incorporate formatting from templates, ease of changing templates and reference formatting, automatic populating of references based upon Digital Object Identifiers (DOIs), and the ability to easily handle complex formulas (specifically embedded LaTeX syntax for formulas). 
 Furthermore, these writing tools can be especially powerful when embedded with the code and data used in the document, which allows authors to create reproducible manuscripts that directly populate in-text tables and figures. 
 
 we have observed interest (circa 2021-2023) in Markdown-based writing documents from our colleagues and collaborators who are natural resource managers or scientists supporting these managers, in North America and globally.
 For example, the U.S. Geological Survey has a Markdown Community of Practice, and the authors of this paper have presented tutorials to this group.
 Additionally, this group includes members from the U.S. Fish and Wildlife Service and other agencies in the U.S. Department of the Interior.
-We have also observed discussed using Markdown-based writing tools in online conversations with others such as the U.S. Fish and Wildlife Service's "Great Lakes R Working Group."
+We have also discussed using Markdown-based writing tools in online conversations with others such as the U.S. Fish and Wildlife Service's "Great Lakes R Working Group."
 These examples motivated our creation of this paper and corresponding template.
 
 For readers who are unfamiliar with Markdown-based writings tools, we provide a brief history here.
@@ -93,7 +93,7 @@ The popularity and limitations of R Markdown led a group including Yihui Xie to 
 
 
 The remaining purpose of our paper is to present our Quarto template for this journal, which can be fully accessed at @erickson2024quarto.
-We demonstrate some useful features including how to include figures, tables, and the `quarto-utils` package for automatic bibliography generation [@fienen2024quarto].
+We demonstrate some useful features including how to include figures, tables, accessibility components, and the `quarto-utils` package for automatic bibliography generation [@fienen2024quarto].
 We also discuss how these tools may be applied to other situations.
 Although our examples tend to focus on R, Quarto works with many languages including LaTeX (for example, to typeset equations and format outputs), Python, and Julia (Figure 1).
 
@@ -174,7 +174,15 @@ This may require practitioners to become familiar with Word templates.
 For example, in the _Journal of Fish and Wildlife Management_, the first paragraph of every section lacks indentation, but the second and subsequent paragraphs in a section use a tab indent. 
 Changing this formatting requires changing the paragraph template settings in the template Word document.
 Further modifications can be made to change the template by updating the Styles definitions (such as "Header 1" or "Body Text") in the template Word document.
-These changes would then be shown on the output Quarto-based Word document after the template Word document is saved and  the Quarto (`.qmd`) file is rerendered to create a Word document.
+These changes would then be shown on the output Quarto-based Word document after the template Word document is saved and  the Quarto (`.qmd`) file is re-rendered to create a Word document.
+
+## Tips to improve accessibility
+
+Using Quarto as a templating workflow does not necessarily guarantee that the resulting rendered document will be 508-compliant or accessible; however, there are some additional guidelines that will improve overall accessibility:
+
+1. Use the built-in header system (e.g., `#` for Header 1, `##` for Header 2, etc.) to create screen-readable organization in the rendered document.
+2. Add "alt-text" to your figure elements. Alt-text is text added to provide a visual description of the figure or image and is read by screen-readers. If you are using a chunk of code to create the figure, you can include a chunk argument `fig.alt="..."` that will automatically create alt-text for that output. Alternatively, if you are directly adding a figure to your document, you can include alt-text within the square brackets: `![Alt text description](image_pathway.png).0`
+3. Follow other best-practices for accessible writing and design, such as using plain language when possible, using high-contrast colors in data visualizations, and using the built-in Microsoft Word Accessibility Checker on your final rendered document.
 
 ## `quarto-utils`
 
