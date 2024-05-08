@@ -78,7 +78,6 @@
               <date-part name="year"/>
             </date>
           </group>
-          <text variable="URL"/>
         </group>
       </if>
     </choose>
