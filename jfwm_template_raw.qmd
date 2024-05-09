@@ -36,38 +36,45 @@ U.S. Geological Survey, Upper Midwest Water Science Center, Madison, WI
 # Abstract
 
 Scientists and resource managers increasingly use Markdown-based tools to create reproducible reports and manuscripts.
+These workflows allow people to use standardized methods that are more reproducible, efficient, and transparent
+than other standard office tools.
 We present a Quarto template and demonstrate how this template may be used for a journal, the _Journal of Fish and Wildlife Management_, in our article.
 This template may also be readily adapted to other journals that use Microsoft Word-based workflows and for other product types such as annual reports. 
 We also provide a high-level overview of Quarto and other Markdown-based workflows as part of the document.
-Lastly, we provide examples of some features of the Quarto publishing system that may be helpful for authors when customizing Quarto template for specific journal formatting requirements and other product types.
-
+Lastly, we provide examples of some features of the Quarto publishing system that may be helpful for authors when customizing Quarto templates for specific journal formatting requirements and other product types.  
 **Keywords:** Findable, Accessible, Interoperable, and Reuseable (FAIR); markdown; reproducible science; journal template; Quarto
+<!-- Note the use of two spaces to form a list without indents, from  -->
+<!-- https://stackoverflow.com/questions/32474227/lists-without-bullets-points-in-markdown -->
 
 # Introduction 
 
 Modern computing tools allow scientists and practitioners to be efficient, transparent, and provide reproducible results [@Braga_2023; @Erickson_2021].
 For example, ecologists are moving away from point-and-click statistical methods and using scripting languages with code [@borregaard2016towards].
-These changes not only make scientists more productive but also confer additional benefits.
+These changes not only make scientists more productive but also confer additional benefits to science and management at large.
 First, scripting allows methods to be reused by their creator.
 For example, scientists commonly complete the same or similar analyses on a regular basis [such as @usfws2023], and scripting allows methods to be easily adapted and often quickly rerun with minimal formatting.
 Second, sharing the scripts allows others to reuse methods and recreate results when data are shared.
 Third, scripting provides direct evidence about what options were, or were not, selected for an analysis and data cleaning.
-All three of these features increase transparency in the scientific process.
+All three of these features increase transparency in the scientific process and increases the efficiency of scientific advancement or drafting of management documents to solve important problems.
 
 The broader scientific community increasingly has begun to understand the importance of reproducible results because the perception of a "reproducibility crisis" exists among most of the scientists surveyed across scientific fields [@Baker_2016; @fanelli2018science]. 
 This lack of reproducibility also exists in natural resource fields. 
 For example, @ArchMiller_2020 determined only 17% of studies randomly selected from the _Journal of Wildlife Management_ and the _Wildlife Society Bulletin_ could have their analyses reproduced.
+On a smaller scale, @bennie2024obtaining had advanced undergraduate and graduate statistics students attempt to recreate published ecological studies for class projects and none could exactly recreate results using the methods as described in publications.
+One reason for this lack of reproductivity is the different methods that exist for analyzing data as demonstrated.
+As an example, @gould2023same asked 246 scientists to analyze the same datasets and got vastly different results from the different scientists.
+The most extreme variation observed by @gould2023same included different signs (for example, some people estimated a positive effect whereas others found a negative effect using the same data).
 In hydrology, lack of reproducibility has raised questions of the validity of the field as a whole [@Hutton_2016] and has motivated exploration of challenges from other fields [@Fienen_2016].
 Thus, scientists increasingly seek to produce reproducible results, especially for computationally intensive projects [@borregaard2016towards].
-
 Others have provided suggestions and methods for creating reproducible results in natural resource and related fields [such as @borregaard2016towards; @Braga_2023].
 Additionally, Findable, Accessible, Interoperable, and Reusable (FAIR) principles exist to help scientists share and produce reproducible science [for example, @Reiser_2018].
 Likewise, professional societies and government agencies have produced guidelines similar to FAIR for reproducible science (for example, refer to Table 1 in @Erickson_2021 that lists example organizations).
 
-Many scientists use scripting languages like Python or R for their statistical methods and analyses. For example, @Erickson_2020 determined that a plurality of authors in the journal _Environmental Toxicology and Chemistry_ from 2019 used the R computing language for analysis in their papers.
+Many scientists use scripting languages like Python [@van1995python] or R [@r2024] for their statistical methods and analyses.
+For example, @Erickson_2020 determined that a plurality of authors in the journal _Environmental Toxicology and Chemistry_ from 2019 issue used the R computing language for analysis in their papers.
 However, we have observed that fewer scientists use similar tools in a reproducible "research workflow" for writing manuscripts even though scripting environments are now enriched with code-based manuscript services, such as Quarto, knitr, and Bookdown, which are primarily Markdown-based programs (Baumer and Udwin 2015; Figure 1). 
 Advantages of Markdown-based programs over direct typesetting products like LaTeX, Word, or Pages include simplicity, readability, transparency, and embedded computation [@baumer2015r]. Specifically, code-based manuscript writing can include the option to readily incorporate formatting from templates, ease of changing templates and reference formatting, automatic populating of references based upon Digital Object Identifiers (DOIs), and the ability to easily handle complex formulas (specifically embedded LaTeX syntax for formulas). 
-Furthermore, these writing tools can be especially powerful when embedded with the code and data used in the document, which allows authors to create reproducible manuscripts that directly populate in-text tables and figures. 
+Furthermore, these writing tools can be especially powerful when embedded with the code and data used in the document, which allows authors to create reproducible manuscripts that directly populate in-text tables and figures and descriptive statistics or test statistics reported in results sections. 
 
 We have observed interest (circa 2021-2023) in Markdown-based writing documents from our colleagues and collaborators who are natural resource managers or scientists supporting these managers, in North America and globally.
 For example, the U.S. Geological Survey has a Markdown Community of Practice, and the authors of this paper have presented tutorials to this group.
@@ -78,14 +85,14 @@ These examples motivated our creation of this paper and corresponding template.
 For readers who are unfamiliar with Markdown-based writings tools, we provide a brief history here.
 Stanford University computer scientist Donald Knuth had trouble typesetting his mathematical equations in the late 1970s and early 1980s and this led him to create the TeX language [@knuth1984tex].
 Building upon TeX, Leslie Lamport created LaTeX as a set of macros to make TeX easier to use [@lamport1985latex].
-Statisticians who used LaTeX sought to readily embed statistical code, results, and figures with LaTeX documents.
-Thus, to meet this need, the program Sweave was created to "weave" S into LaTeX (at the time, many statisticians used the S language, which inspired the R language; Leisch 2002).
+Statisticians who used LaTeX sought to readily embed statistical code, results, and figures into their LaTeX documents-based documents and workflows.
+To meet this need, the program Sweave was created to "weave" S into LaTeX (at the time, many statisticians used the S language, which inspired the R language; Leisch 2002).
 
 Although useful, we have observed that TeX, LaTeX, and Sweave can be be complicated to use, and Sweave can be especially cumbersome because it requires the source file to be compiled multiple times for a single output. 
 TeX, LaTeX, and Sweave also may be difficult for natural resource scientists to learn, because they require new software and languages outside of the more common R or Python environments.
 Furthermore, in the four and half decades since Tex was created and four decades since LaTeX was created, Markdown usage became ubiquitous through its integration with version control tools such as Git and common Microsoft Office tools such as Teams and Word, which include many common Markdown shortcuts for formatting text (for example, typing `*` then `space` on a new line in either program will start a bulleted list, which is syntax from the Markdown language).
 Others noted these difficulties as well; thus, Yihui Xie and others created a Markdown-based program for use with R, known as R Markdown [@Xie_2018], that overcomes many of these limitations.
-R Markdown works by using the `knitr` package to "knit" (or compile) the R Markdown into an output such as a Hyptertext Markup Language files, ending with `.html`; Microsoft Word Document, ending with `.docx`; or Portable Document Format, ending with `.pdf` [@knitr2014].
+R Markdown works by using the `knitr` package to "knit" (or compile) the R Markdown file into an output such as Hyptertext Markup Language files, ending with `.html`; Microsoft Word Document files, ending with `.docx`; or Portable Document Format files, ending with `.pdf` [@knitr2014].
 Another Markdown offshoot is the ROxygen2 language, which allows users in the R environment to directly convert R script files (ending with `.R` rather than R Markdown files ending with `.Rmd`) into R Markdown, which is then "knit" to output formats mentioned in the previous sentence [@roxygen2].
 The broader R community received R Markdown well [such as reviews by @baumer2015r], but this language also has some limitations.
 Most notably, the language requires R and has some minor quirks.
@@ -96,23 +103,21 @@ The remaining purpose of our paper is to present our Quarto template for this jo
 We demonstrate some useful features including how to include figures, tables, accessibility components, and the `quarto-utils` package for automatic bibliography generation [@fienen2024quarto].
 We also discuss how these tools may be applied to other situations.
 Although our examples tend to focus on R, Quarto works with many languages including LaTeX (for example, to typeset equations and format outputs), Python, and Julia (Figure 1).
+Quarto may also be used either interactively through editors such as Posit's RStudio or Microsoft's Visual Studio Code, or called through the terminal either directly using the Quarto command `quarto render my_file.qmd` or through scripts such as `python my_script_calling_quarto.py` or `Rscript my_script_calling_quarto.R`.
+We used Quarto interactively when writing this paper, but Quarto may be used as part of scripts for automated workflows such as generating reports, summarizing model outputs, or similar tasks used to create reports.
 
-# Methods
-
-
-
-## Quarto workflow
+# Quarto workflow
 
 This tutorial focuses on Microsoft Word document outputs because many journals, including the _Journal of Fish and Wildlife Management_, use a Word-based workflow.
-The Quarto documentation provides a generic journal format (https://quarto.org/docs/journals/, Accessed January 2024), and a Quarto journals GitHub repository, hosts specific templates for other journals (https://github.com/quarto-journals/, Accessed January 2024).
+The Quarto documentation provides a generic journal format (https://quarto.org/docs/journals/, accessed January 2024), and a Quarto journals GitHub repository, hosts specific templates for other journals (https://github.com/quarto-journals/, accessed January 2024).
 When writing a Quarto document, the first step is to create a Quarto file that ends with `.qmd` extensions.
 Common editors that work with Quarto files include Posit RStudio (v2023.06 or newer; Posit Team 2023) and Microsoft Visual Studio Code [@code2023visual].
 RStudio also offers the benefits of creating new Quarto files from templates for journal articles, presentations, and other types of documents directly within the editor.
-Additionally, Quarto contains tools for generating empty templates outside of RStudio using command line tools for editing in programs such as Visual Studio Code or similar editor programs (refer to the program documentation such as https://quarto.org/docs/journals/templates.html for addition details of these features, accessed December 2023).
+Additionally, Quarto contains tools for generating empty templates outside of RStudio using command line tools for editing in programs such as Visual Studio Code or similar editor programs (refer to the program documentation such as https://quarto.org/docs/journals/templates.html for details of these features, accessed December 2023).
 Alternatively, readers may use an existing Quarto file and edit that file.
 For example, people can edit the Quarto file used to generate this paper that is hosted at @erickson2024quarto to write their own manuscripts for journal articles or other product types such as annual reports.
 
-Within the Quarto file, the header contains metadata in a YAML-style format.
+Within the Quarto file, the header contains metadata in a YAML-style format (YAML is a programming language for data serialization [data serialization means specifying settings, such as formatting options in the case of Quarto] with a recursive name "YAML Ain't Markup Language").
 The Quarto file for this article contains the following metadata:
 
 * The `title` listing the article's title.
@@ -126,7 +131,8 @@ The Quarto file for this article contains the following metadata:
 * A list of "no citation" references (`nocite`) tells the Markdown to include citation items even if the item is not cited in the document. We include this because we had to manually format some inline citations to match the journal's style.
 
 After the header, the user writes their manuscript using Markdown code with optional LaTeX code for equations. 
-Code can be embedded within "chunks" that are defined by their language (such as the lower case `r` for R or `python` for Python). These code chunks can either be displayed or hidden in the final document:
+Code can be embedded within "chunks" that are defined by their language (such as the lower case `r` for R or `python` for Python).
+These code chunks can either be displayed or hidden in the final document, for example:
 
 ````{verbatim, lang = "markdown"}
 
@@ -139,21 +145,21 @@ n_mean <- n_total / 23.5
 
 Whereas this code chunk would be hidden from the resulting document:
 
-```{r, echo=FALSE}
+```{r}
 #| echo: false
 n_total <- 4341
 n_mean <- n_total / 23.5
 ```
 
 ````
-
+R users may also extract extract code using the `purl()` function from the `knitr` R package [@knitr2014].
 References are added to the BibTeX file, either manually or using a script described later by pulling DOIs.
 Figures and tables can be added as needed, whether built locally with code chunks or called in from other sources.
 While writing, the author can preview the results by compiling the file to create a Word document.
 This also serves as a check for code mistakes that might prevent the Quarto file from compiling.
 The end result is a Word file that may be submitted to the a journal with minimal manual formatting required. 
 
-## Background knowledge, tips, and other Quarto observations 
+# Background knowledge, general tips, and other Quarto observations 
 
 Writing Quarto documents requires a basic knowledge of Markdown.
 The Quarto documentation (available at [https://quarto.org/](https://quarto.org/), accessed September 2023) contains tutorials to help people get started.
@@ -196,36 +202,45 @@ Changing this formatting requires changing the paragraph template settings in th
 Further modifications can be made to change the template by updating the Styles definitions (such as "Header 1" or "Body Text") in the template Word document.
 These changes would then be shown on the output Quarto-based Word document after the template Word document is saved and  the Quarto (`.qmd`) file is re-rendered to create a Word document.
 
-## Tips to improve accessibility
+# Collaborative tips
 
-Using Quarto as a templating workflow does not necessarily guarantee that the resulting rendered document will be 508-compliant or accessible; however, there are some additional guidelines that will improve overall accessibility:
+Almost all modern scientific and technical writing documents require multiple people write, edit, or otherwise contribute to documents.
+During the writing process, different approaches exist for collaborative writing and editing.
+In an ideal world (at least the authors' idealized world), all contributors would comfortable using version control software and sharing their documents that way.
+Realistically, this is unlikely and unreasonable based upon our observations.
+We have found the following options to helpful when working with people who are unconformable or otherwise unable to use version control software.
+First, some authors may be willing edit Quarto files in RStudio, which provides a visual editor rather than a code-based editor and files may be emailed back and forth, similar to emailing other documents.
+Second, Quarto and Markdown files can be readily edited with any plain text editor, even Notepad that comes standard with the Windows operating system so people can simply edit the plain document without understanding Markdown or using a special Markdown editor.
+Third, for collaborators who would like to or require the use of conventional document files, Quarto can be compiled to a `.docx` file and then edited with programs like Microsoft Word or Libre Office.
+For small edits or high-level feedback, we have found this option to be reasonable.
+Fourth, software packages  exist to help people collaborate with Quarto.
+For example, the Trackdown package allows people to share files using Google Drive and edit files using Google Docs [@Kothe2021].
+The Trackdown package and other tools also exist for creating documents showing track changes from Quarto-based document.
+Fifth, the paid commercial version of RStudio, Posit Workbench, also allows people to collaborative edit documents in real time. 
+Sixth, we will also sometimes write a document in Quarto and then switch to a Word-based workflow for the final edits and "break" the connection to Quarto.
+For example when writing agency reports our journal articles, we may stop using Quarto because it is easier than continuing to update Quarto documents.
+
+# Tips to improve accessibility
+
+Using Quarto as a templating workflow does not necessarily guarantee that the resulting rendered document will be Section 508-compliant or accessible (https://www.section508.gov/, May 2024); however, there are some additional guidelines that will improve overall accessibility:
 
 1. Use the built-in header system (e.g., `#` for Header 1, `##` for Header 2, etc.) to create screen-readable organization in the rendered document.
 2. Add "alt-text" to your figure elements. Alt-text is text added to provide a visual description of the figure or image and is read by screen-readers. If you are using a chunk of code to create the figure, you can include a chunk argument `fig.alt="..."` that will automatically create alt-text for that output. Alternatively, if you are directly adding a figure to your document, you can include alt-text within the square brackets: `![Alt text description](image_pathway.png).0`
 3. Follow other best-practices for accessible writing and design, such as using plain language when possible, using high-contrast colors in data visualizations, and using the built-in Microsoft Word Accessibility Checker on your final rendered document.
 
-## `quarto-utils`
+# `quarto-utils`
 
 The `quarto-utils` software is a Python package that assists Quarto authors in compiling and formatting references. 
 By leveraging the https://doi.org web interface, authors are able to place references in their documents by only providing a DOI in place of a reference in the text.
 Then using functionality in `quarto-utils`, the code will search the `.qmd` document for DOI codes, retrieve a BibTeX representation of the reference from doi.org, add the BibTeX string to a bibliography file, and convert the DOI reference in the `.qmd` file to a valid reference call.
-The author identifies a reference in the same way they would call out an existing reference using `[]` delimiters, but rather than providing a key that references the `.bib` file (such as `[@Prince1999]`), they would use either `_doi:thedoinumber` or `\_doi:thedoinumber` in its place.
+The author identifies a reference in the same way they would call out an existing reference using `[]` delimiters, but rather than providing a key that references the `.bib` file (such as `[@Gelman2010]`), they would use either `_doi:thedoinumber` or `\_doi:thedoinumber` in its place.
 The `quarto-utils` code searches for `_doi:` or `\_doi:` and parses for the DOI.
-The DOI can take the form of just the number (such as  `10.1999/prince.albums`) or the full uniform resource locator (such as `https://doi.org/10.1999/prince.albums`).
+The DOI can take the form of just the number (such as  `10.48550/arXiv.1003.6087`) or the full uniform resource locator (such as `https://doi.org/10.48550/arXiv.1003.6087`).
 If invalid DOI codes are provided, `quarto-utils` will report that it was not able to find a reference for a given string and will leave the `.qmd` file unchanged.
 This feature is another method to streamline the writing process.
 Many bibliographic database software programs exist, but authors may find it more efficient to simply search the internet for a reference they want to cite, copy the DOI, paste it into their `.qmd` file, and keep writing.
 The BibTeX file generated by `quarto-utils` may require manual formatting, and occasionally, automatically generated outputs prevent Quarto from rendering files until special characters (such as non-American Standard Code for Information Interchange) are removed.
-Also, citations listed on doi.org may be incorrect and sometimes require addition curation and formatting.
-
-# Results
-
-We have demonstrated how to use Quarto to prepare manuscripts for journals that use Word-based workflows, such the _Journal of Fish and Wildlife Management_ or the _Journal of Wildlife Management_, and do not include LaTeX-based workflows as submission options.
-Our example paper included figures (such as Figure 1) and tables (such as Table 1 and Table 2).
-We have also described the coauthors' connections to the Upper Midwest (Table 2).
-These figures and tables demonstrated how to construct a table with formatting changes from default settings.
-The methods of this paper provided tips and suggestions for using Quarto to format documents to match a specific journal's style. 
-Last, we presented a Python package, `quarto-utils` [@fienen2024quarto] for helping author automate their reference management. 
+Also, citations listed on doi.org may be incorrect and sometimes require additional curation and formatting.
 
 
 # Discussion
@@ -243,13 +258,10 @@ Aside from directly helping authors who write journal articles or other products
 For example, many reports that are published weekly, monthly, quarterly, annually, or on a similar interval would benefit from not only using a computer script to perform the statistical analysis, data formatting, plotting, or other number crunching but also in preparing the document itself.
 The example described in this paper and fully provided in @erickson2024quarto could also serve as a starting place for these documents.
 
-# Conflict of Interest
-
-The authors report no conflicts of interest.
 
 # Acknowledgments
 
-We thank all reviewers and editors, both the journals and internal U.S. Geological Survey, for their feedback that improved this manuscript.
+We thank all reviewers and editors, both the journal's and internal U.S. Geological Survey, for their feedback that improved this manuscript.
 We thank the U.S. Geological Survey Biological Threats and Invasive Species Research Program and U.S. Geological Survey Water Resources Mission Area Integrated Information Dissemination Division for funding.
 Any use of trade, firm, or product names is for descriptive purposes only and does not imply endorsement by the U.S. Government.
 The findings and opinions expressed in this manuscript are those of the authors and do not necessarily represent the views of the U.S. Fish and Wildlife Service.
@@ -261,14 +273,20 @@ The `quarto-utils` package is available at @fienen2024quarto.
 
 # Figures
 
-Figure 1. Example of Quarto workflow. Within the Quarto document, users can add chunks of code in the R, Julia, or Python languages. In addition, users can directly embed LaTeX typesetting, which is often used for equations. Quarto then renders the document to an intermediate Markdown document with Pandoc. Pandoc then converts the Markdown document directly to one of the many output formats. These formats include such products as Portable Document Format (PDF), Microsoft Word, Microsoft PowerPoint, or Hypertext Markup Language (html).
+Figure 1. Example of Quarto workflow for reproducible scientific workflows.
+Users write Quarto documents using Markdown syntax.
+Within the Quarto document, users can add chunks of code in the R, Julia, Python or other languages.
+In addition, users can directly embed LaTeX typesetting, which is often used for equations.
+Quarto then renders the document to an intermediate Markdown document with Pandoc.
+Pandoc then converts the Markdown document directly to one of the many output formats.
+These formats include such products as Portable Document Format (PDF), Microsoft Word, Microsoft PowerPoint, or Hypertext Markup Language (html).
 
 ![](quarto.png)
 
 
 # Tables
 
-Table 1. Steps to use the Quarto template associated with this manuscript for a journal such as the _Journal of Fish and Wildlife Management_.
+Table 1. Steps to use the Quarto template associated with this manuscript for a journal such as the _Journal of Fish and Wildlife Management_.  
 
 ```{r}
 #| message: false
@@ -304,8 +322,13 @@ steps_tib |>
   flextable() |>
   theme_booktabs() |>
   FitFlextableToPage()
-```  
-Table 2. Author trivia to demonstrate a table. The table awkwardly includes wide and long form data to demonstrate how to use the `flextable` package.  
+```
+
+Table 2. Author trivia to demonstrate a table.
+The table contains details about the authors' connections to Wisconsin and Minnesota.
+this includes the authors' initials (Author column; Richard A. Erickson, RAE; Althea A. Archer, AAA; and Michael N. Fienen MNF), Internship and Undergraduate Minnesota connection, and  University of Wisconsin (UW) system connection as a Wisconsin Academic Connection. 
+The table is intentionally awkwardly formated to include wide and long form data to demonstrate how to use the `flextable` package.
+
 ```{r}
 #| message: false
 #| warning: false
@@ -338,8 +361,11 @@ data |>
 
 # Supplemental Material
 
-**Supplement S1** Lightsom FL, Hutchison VB, Bishop B, Debrewer LM, Govoni DL, Latysh N, Stall S. 2022. Opportunities to improve alignment with the FAIR principles for U.S. Geological Survey data. U.S. Geological Survey Open File Report 2022-1043. U.S. Geological Survey, Reston, VA. doi:10.3133/ofr20221043.
-**Supplement S2** U.S. Fish and Wildlife Service. 2023a. Budget justifications and performance information fiscal year 2024. U.S. Department of the Interior, Washington, D.C. USA.
+<!-- Note the use of two spaces to form a list without indents, from  -->
+<!-- https://stackoverflow.com/questions/32474227/lists-without-bullets-points-in-markdown -->
+
+**Supplement S1** Lightsom FL, Hutchison VB, Bishop B, Debrewer LM, Govoni DL, Latysh N, Stall S. 2022. Opportunities to improve alignment with the FAIR principles for U.S. Geological Survey data. U.S. Geological Survey Open File Report 2022-1043. U.S. Geological Survey, Reston, VA. doi:10.3133/ofr20221043.  
+**Supplement S2** U.S. Fish and Wildlife Service. 2023a. Budget justifications and performance information fiscal year 2024. U.S. Department of the Interior, Washington, D.C. USA.  
 **Supplement S3**  U.S. Fish and Wildlife Service. 2023b. Waterfowl population status, 2023. U.S. Department of the Interior, Washington, D.C. USA.  
 
 # References

@@ -71,8 +71,8 @@
     <choose>
       <if variable="URL" match="any">
         <group delimiter=". ">
-          <group prefix=" [" suffix="]" delimiter=" ">
-            <text term="accessed"/>
+          <group prefix=" (" suffix=")" delimiter=" ">
+            <text term=""/>
             <date variable="accessed" delimiter=" ">
               <date-part name="month" form="long" strip-periods="true"/>
               <date-part name="year"/>
