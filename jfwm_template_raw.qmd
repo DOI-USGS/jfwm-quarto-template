@@ -164,9 +164,8 @@ The end result is a Word file that may be submitted to a journal with minimal ma
 Writing Quarto documents requires a basic knowledge of Markdown.
 The Quarto documentation (available at [https://quarto.org/](https://quarto.org/), accessed September 2023) contains tutorials to help people get started.
 Additionally, the Quarto document [@erickson2024quarto] used to generate this document contains many examples for those who like to dive in and learn by doing.
-Writing equations requires an understanding of some of the basics of LaTeX but much less than writing entire documents in LaTeX (many online tutorials exist such as the TeX User Group's, http://tug.ctan.org/info/short-math-guide/short-math-guide.pdf, accessed December 2023).  
-<!-- this may be too obscure, but I find the LyX (lyx.org) GUI to be really useful to construct complicated latex equations becuase it has a pointy-clicky interface from which you can pull raw code. Proposed additional sentence would be: Additionally, free graphical user interfaces such as LyX (lyx.org) provide visual tools to help create complicated equations from which the source LaTeX code can be copied and posted into a Quarto document.-->
-
+Writing equations requires an understanding of some of the basics of LaTeX but much less than writing entire documents in LaTeX (many online tutorials exist such as the TeX User Group's, http://tug.ctan.org/info/short-math-guide/short-math-guide.pdf, accessed December 2023).
+Additionally, free graphical user interfaces such as LyX (available for all major operating systems; lyx.org, accessed May 2024) provide visual tools to help create complicated equations from which the source LaTeX code can be copied and posted into a Quarto document.
 
 As a general observation, when Quarto documents are rendered to Word documents, the Pandoc software [@dominici2014overview] that renders the document is limited in formatting and style options compared to Hypertext Markup Language (HTML) or Portable Document Format (PDF) files because of technical reasons beyond the scope of this paper.
 Hence, readers may find some solutions using search engines that will not work for this Word-based template.
@@ -203,8 +202,7 @@ Changing this formatting requires changing the paragraph template settings in th
 Further modifications can be made to change the template by updating the Styles definitions (such as "Header 1" or "Body Text") in the template Word document.
 These changes would then be shown on the output Quarto-based Word document after the template Word document is saved and  the Quarto (`.qmd`) file is re-rendered to create a Word document.
 
-# Collaborative tips  
-<!-- maybe "Collaboration tips"? -->
+# Collaboration tips
 
 Almost all modern scientific and technical writing documents require multiple people to write, edit, or otherwise contribute to documents.
 During the writing process, different approaches exist for collaborative writing and editing.
@@ -218,10 +216,11 @@ For small edits or high-level feedback, we have found this option to be reasonab
 Fourth, software packages  exist to help people collaborate with Quarto.
 For example, the Trackdown package allows people to share files using Google Drive and edit files using Google Docs [@Kothe2021].
 The Trackdown package and other tools also exist for creating documents showing track changes from Quarto-based document.
-Fifth, the paid commercial version of RStudio, Posit Workbench, also allows people to collaborative edit documents in real time. 
-Sixth, we will also sometimes write a document in Quarto and then switch to a Word-based workflow for the final edits and "break" the connection to Quarto.  
-<!-- should we mention I also switch to LaTeX for the final stages for some journals? -->
-For example when writing agency reports our journal articles, we may stop using Quarto at the final stages because it is easier than continuing to update Quarto documents.
+Fifth, the paid commercial version of RStudio, Posit Workbench, also allows people to collaborative edit documents in real time.
+Sixth, we will also sometimes write a document in Quarto and then switch to the journal's workflow language for the final edits and "break" the connection to Quarto.
+For Word-based workflows, this is a Word document (ending with `.docx`, or `.doc` for some older workflows) and applies to journals such as the _Journal of Fish and Wildlife Management_.
+For LaTeX-based workflows, this is a LaTeX document (ending with `.tex`) and applies to journals that use LaTeX-based workflows.
+For example when writing agency reports based upon our journal articles, we may stop using Quarto at the final stages because it is easier than continuing to update Quarto documents.
 
 # Tips to improve accessibility
 
@@ -331,7 +330,7 @@ steps_tib |>
 Table 2. Author trivia to demonstrate a table.
 The table contains details about the authors' connections to Wisconsin and Minnesota.
 this includes the authors' initials (Author column; Richard A. Erickson, RAE; Althea A. Archer, AAA; and Michael N. Fienen MNF), Internship and Undergraduate Minnesota connection, and  University of Wisconsin (UW) system connection as a Wisconsin Academic Connection. 
-The table is intentionally awkwardly formated to include wide and long form data to demonstrate how to use the `flextable` package.
+The table is intentionally awkwardly formatted to include wide and long form data to demonstrate how to use the `flextable` package.
 
 ```{r}
 #| message: false
