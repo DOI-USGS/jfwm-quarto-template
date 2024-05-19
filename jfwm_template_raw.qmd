@@ -134,24 +134,34 @@ After the header, the user writes their manuscript using Markdown code with opti
 Code can be embedded within "chunks" that are defined by their language (such as the lower case `r` for R or `python` for Python).
 These code chunks can either be displayed or hidden in the final document, for example:
 
-````{verbatim, lang = "markdown"}
+
 
 This code chunk would be shown in the resulting document:
 
+````{verbatim, lang = "markdown"}
 ```{r}
 n_total <- 4341
 n_mean <- n_total / 23.5
 ```
+````
 
-Whereas this code chunk would be hidden from the resulting document:
+Whereas these code chunks demonstrate two options to hide the code in the resulting document:
 
+````{verbatim, lang = "markdown"}
 ```{r}
 #| echo: false
 n_total <- 4341
 n_mean <- n_total / 23.5
 ```
-
 ````
+
+````{verbatim, lang = "markdown"}
+```{r, echo=FALSE}
+n_total <- 4341
+n_mean <- n_total / 23.5
+```
+````
+
 R users may also extract extract code using the `purl()` function from the `knitr` R package [@knitr2014].
 References are added to the BibTeX file, either manually or using a script described later by pulling Document Object Identifiers (DOIs).
 Figures and tables can be added as needed, whether built locally with code chunks or called in from other sources.
@@ -206,7 +216,7 @@ These changes would then be shown on the output Quarto-based Word document after
 
 Almost all modern scientific and technical writing documents require multiple people to write, edit, or otherwise contribute to documents.
 During the writing process, different approaches exist for collaborative writing and editing.
-In an ideal world (at least the authors' idealized world), all contributors would comfortable using version control software and sharing their documents that way.
+In an ideal world (at least the authors' idealized world), all contributors would be comfortable using version control software and sharing their documents that way.
 Realistically, this is unlikely and unreasonable based upon our observations.
 We have found the following options to helpful when working with people who are unconformable or otherwise unable to use version control software.
 First, some authors may be willing to edit Quarto files in RStudio, which provides a visual editor rather than a code-based editor and files may be emailed back and forth, similar to emailing other documents.
@@ -227,7 +237,7 @@ For example when writing agency reports based upon our journal articles, we may 
 Using Quarto as a templating workflow does not necessarily guarantee that the resulting rendered document will be Section 508-compliant or accessible (https://www.section508.gov/, May 2024); however, there are some additional guidelines that will improve overall accessibility:
 
 1. Use the built-in header system (e.g., `#` for Header 1, `##` for Header 2, etc.) to create screen-readable organization in the rendered document.
-2. Add "alt-text" to your figure elements. Alt-text is text added to provide a visual description of the figure or image and is read by screen-readers. If you are using a chunk of code to create the figure, you can include a chunk argument `fig.alt="..."` that will automatically create alt-text for that output. Alternatively, if you are directly adding a figure to your document, you can include alt-text within the square brackets: `![Alt text description](image_pathway.png).0`
+2. Add "alt-text" to your figure elements. Alt-text is text added to provide a visual description of the figure or image and is read by screen-readers. If you are using a chunk of code to create the figure, you can include a chunk argument `fig.alt="..."` that will automatically create alt-text for that output. Alternatively, if you are directly adding a figure to your document, you can include alt-text within the square brackets: `![Alt text description](image_pathway.png).`
 3. Follow other best-practices for accessible writing and design, such as using plain language when possible, using high-contrast colors in data visualizations, and using the built-in Microsoft Word Accessibility Checker on your final rendered document.
 
 # `quarto-utils`
